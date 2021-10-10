@@ -10,6 +10,10 @@ class EmailVerifyController extends Controller
 {
     public function index()
     {
+        if (request()->user()->hasVerifiedEmail()) {
+            return redirect()->route('dashboard');
+        }
+
         return view('auth.email.verify-email');
     }
 

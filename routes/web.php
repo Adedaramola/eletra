@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\EmailVerifyController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('', 'index');
@@ -22,9 +23,9 @@ Route::middleware(['guest'])->group(function () {
         ->name('password.request');
     Route::post('forgot-password', [ForgotPasswordController::class, 'forgot'])
         ->name('password.email');
-    Route::get('reset-password/{token}', [ForgotPasswordController::class, 'reset'])
+    Route::get('reset-password/{token}', [ResetPasswordController::class, 'reset'])
         ->name('password.reset');
-    Route::post('reset-password', [ForgotPasswordController::class, 'update'])
+    Route::post('reset-password', [ResetPasswordController::class, 'update'])
         ->name('password.update');
 });
 
