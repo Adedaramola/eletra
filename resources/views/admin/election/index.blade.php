@@ -21,12 +21,14 @@
                         </a>
                     </div>
                     @foreach ($elections as $election)
-                    <div class="flex items-center justify-between bg-white font-medium text-sm px-6 py-4 mb-4 rounded-md shadow">
+                    <div
+                        class="flex items-center justify-between bg-white font-medium text-sm px-6 py-4 mb-4 rounded-md shadow">
                         <div>
                             <span>{{ $election->name }}</span>
-                            <span class="ml-4 text-gray-500">0 applications</span>
+                            <span class="ml-4 text-gray-500">{{ $election->candidates->count() }} applications</span>
                         </div>
-                        <a href="{{ route('elections.show', $election->id) }}" class="text-blue-600 hover:underline">View</a>
+                        <a href="{{ route('elections.show', $election->id) }}"
+                            class="text-blue-600 hover:underline">View</a>
                     </div>
                     @endforeach
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\CandidateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ElectionController;
 use App\Http\Controllers\Auth\EmailVerifyController;
@@ -50,6 +51,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('elections/{id}/applications', [ElectionController::class, 'application'])->name('elections.application');
         Route::get('elections/{id}/settings', [ElectionController::class, 'setting'])->name('elections.settings');
         Route::delete('elections/{election}', [ElectionController::class, 'destroy'])->name('elections.destroy');
+
+        Route::get('elections/{id}/candidate', [CandidateController::class, 'show'])->name('candidate');
+        Route::post('elections/{id}/candidate', [CandidateController::class, 'store']);
 
         Route::get('profile', [AdminProfileController::class, 'show'])->name('profile');
     });

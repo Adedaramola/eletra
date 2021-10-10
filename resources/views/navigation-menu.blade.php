@@ -27,7 +27,7 @@
                         <x-slot name="trigger">
                             <button type="button"
                                 class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-blue-100 text-blue-700  text-md leading-4 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition">
-                                {{ Str::substr(Auth::user()->name, 0, 2) }}
+                                {{ Str::upper(Str::substr(Auth::user()->name, 0, 2)) }}
                             </button>
                         </x-slot>
 
