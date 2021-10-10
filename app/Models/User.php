@@ -48,6 +48,12 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public function voters()
+    {
+        return $this->hasManyThrough(Voter::class, Election::class);
+    }
+
+
     protected static function booted()
     {
         static::creating(function ($user) {

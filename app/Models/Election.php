@@ -33,4 +33,10 @@ class Election extends Model
             $election->candidate_code = Str::upper($candidate_code);
         });
     }
+
+
+    public function voters()
+    {
+        return $this->hasMany(Voter::class);
+    }
 }

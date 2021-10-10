@@ -14,8 +14,8 @@ class AppLayout extends Component
 
     public function render()
     {
-        session()->flash('flash.banner', 'success');
-        session()->flash('flash.banner', 'Want to collaborate with your team, get unlimited voters import and more? Upgrade to Premium');
+        // session()->flash('flash.banner', 'success');
+        // session()->flash('flash.banner', 'Want to collaborate with your team, get unlimited voters import and more? Upgrade to Premium');
         return view('layouts.app');
     }
 }

@@ -15,7 +15,7 @@ class CreateVotersTable extends Migration
     {
         Schema::create('voters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignUuid('unique_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('election_id')->constrained()->cascadeOnDelete();
             $table->string('email')->unique();
             $table->string('voting_id')->unique();
             $table->boolean('has_voted')->default(false);

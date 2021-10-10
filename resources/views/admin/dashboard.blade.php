@@ -24,7 +24,9 @@
                     </div>
                     <div class="px-4 py-5 overflow-hidden bg-white rounded-lg shadow sm:p-6">
                         <dt class="text-sm text-gray-500 font-medium truncate">Registered Voters</dt>
-                        <dd class="mt-1 text-3xl font-semibold">0</dd>
+                        <dd class="mt-1 text-3xl font-semibold">
+                            {{ $user->voters->count() }}
+                        </dd>
                     </div>
                 </dl>
             </div>
