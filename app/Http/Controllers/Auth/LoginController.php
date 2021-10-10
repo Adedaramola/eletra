@@ -33,7 +33,7 @@ class LoginController extends Controller
             'password' => $input['password']
         ]);
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('dashboard');
     }
 
     public function logout()

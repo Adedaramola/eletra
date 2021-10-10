@@ -6,14 +6,14 @@
     </x-slot>
     <x-slot name="header2">
         <nav class="flex space-x-4" aria-label="Tabs">
-            <x-sub-link href="{{ route('admin.elections.show', $election->id) }}" :active="request()->routeIs('admin.elections.show')">
+            <x-sub-link href="{{ route('elections.show', $election->id) }}" :active="request()->routeIs('elections.show')">
                 {{ __('Summary') }}
             </x-sub-link>
 
-            <x-sub-link href="{{ route('admin.elections.application', $election->id) }}" :active="request()->routeIs('admin.elections.application')">
+            <x-sub-link href="{{ route('elections.application', $election->id) }}" :active="request()->routeIs('elections.application')">
                 {{ __('Applications') }}
             </x-sub-link>
-            <x-sub-link href="{{ route('admin.elections.settings', $election->id) }}" :active="request()->routeIs('admin.elections.settings')">
+            <x-sub-link href="{{ route('elections.settings', $election->id) }}" :active="request()->routeIs('elections.settings')">
                 {{ __('Settings') }}
             </x-sub-link>
         </nav>

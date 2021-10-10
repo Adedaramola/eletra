@@ -16,7 +16,7 @@
                         </div>
 
                         <a class="inline-flex items-center border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 px-4 py-2"
-                            href="{{ route('admin.elections.create') }}">
+                            href="{{ route('elections.create') }}">
                             Create Election
                         </a>
                     </div>
@@ -26,7 +26,7 @@
                             <span>{{ $election->name }}</span>
                             <span class="ml-4 text-gray-500">0 applications</span>
                         </div>
-                        <a href="{{ route('admin.elections.show', $election->id) }}" class="text-blue-600 hover:underline">View</a>
+                        <a href="{{ route('elections.show', $election->id) }}" class="text-blue-600 hover:underline">View</a>
                     </div>
                     @endforeach
                 </div>
@@ -43,7 +43,7 @@
                         Once you have created an election, it will appear here.
                     </p>
                     <div class="mt-6">
-                        <a href="{{ route('admin.elections.create') }}" type="button"
+                        <a href="{{ route('elections.create') }}" type="button"
                             class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">

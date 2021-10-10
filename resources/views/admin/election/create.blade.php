@@ -8,7 +8,8 @@
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <x-validation-errors class="mb-4" />
-            <form action="" method="POST" class="max-w-xl p-8 mx-auto space-y-8 bg-white rounded-lg shadow">
+            <form action="{{ route('elections.create') }}" method="POST"
+                class="max-w-xl p-8 mx-auto space-y-8 bg-white rounded-lg shadow">
                 @csrf
 
                 <div>

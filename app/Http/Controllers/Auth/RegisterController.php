@@ -37,6 +37,6 @@ class RegisterController extends Controller
 
         event(new Registered($user));
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('dashboard');
     }
 }

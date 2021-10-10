@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ElectionCreated;
 use App\Models\Election;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ElectionController extends Controller
 {
@@ -12,6 +14,30 @@ class ElectionController extends Controller
     {
         $elections = Election::all();
         return view('admin.election.index', compact('elections'));
+    }
+
+    public function store(Request $request)
+    {
+        $input = $this->validate($request, [
+            'name' => 'required|string|unique:users',
+            'description' => 'required|string|max:255',
+            'contestable_categories' => 'required'
+        ]);
+
+        $election = $request->user()->elections()->create([
+            'name' => $input['name'],
+            'description' => $input['description'],
+            'contestable_categories' => $input['contestable_categories'],
+        ]);
+
+        Mail::to(auth()->user())->send(
+            new ElectionCreated(
+                auth()->user(),
+                $election
+            )
+        );
+
+        return redirect()->route('admin.elections.show', $election->id);
     }
 
     public function show()

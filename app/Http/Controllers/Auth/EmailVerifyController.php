@@ -17,7 +17,7 @@ class EmailVerifyController extends Controller
     {
         $request->fulfill();
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('dashboard');
     }
 
     public function resend(Request $request)

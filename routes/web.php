@@ -32,16 +32,16 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('throttle:6,1');
 
     Route::middleware(['verified'])->group(function () {
-        Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::get('elections',[ElectionController::class, 'index'])->name('admin.elections');
-        Route::get('elections/create',[ElectionController::class, 'show'])->name('admin.elections.create');
+        Route::get('elections',[ElectionController::class, 'index'])->name('elections');
+        Route::get('elections/create',[ElectionController::class, 'show'])->name('elections.create');
         Route::post('elections/create',[ElectionController::class, 'store']);
-        Route::get('elections/{id}',[ElectionController::class, 'view'])->name('admin.elections.show');
-        Route::get('elections/{id}/applications',[ElectionController::class, 'application'])->name('admin.elections.application');
-        Route::get('elections/{id}/settings',[ElectionController::class, 'setting'])->name('admin.elections.settings');
+        Route::get('elections/{id}',[ElectionController::class, 'view'])->name('elections.show');
+        Route::get('elections/{id}/applications',[ElectionController::class, 'application'])->name('elections.application');
+        Route::get('elections/{id}/settings',[ElectionController::class, 'setting'])->name('elections.settings');
 
-        Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');
+        Route::get('profile', [AdminProfileController::class, 'show'])->name('profile');
     });
 });
 
