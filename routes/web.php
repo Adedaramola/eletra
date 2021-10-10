@@ -1,0 +1,49 @@
+<?php
+
+use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ElectionController;
+use App\Http\Controllers\Auth\EmailVerifyController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Route;
+
+Route::view('', 'index');
+Route::view('billing', 'billing');
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::post('register', [RegisterController::class, 'store']);
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'auth']);
+
+    Route::view('forgot-password', 'auth.password.forgot-password')->name('password.request');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('email/verify', [EmailVerifyController::class, 'index'])
+        ->name('verification.notice');
+    Route::get('email/verify/{id}/{hash}', [EmailVerifyController::class, 'verify'])
+        ->name('verification.verify')
+        ->middleware('signed');
+    Route::post('email/verify/resend', [EmailVerifyController::class, 'resend'])
+        ->name('verification.send')
+        ->middleware('throttle:6,1');
+
+    Route::middleware(['verified'])->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+        Route::get('elections',[ElectionController::class, 'index'])->name('admin.elections');
+        Route::get('elections/create',[ElectionController::class, 'show'])->name('admin.elections.create');
+        Route::post('elections/create',[ElectionController::class, 'store']);
+        Route::get('elections/{id}',[ElectionController::class, 'view'])->name('admin.elections.show');
+        Route::get('elections/{id}/applications',[ElectionController::class, 'application'])->name('admin.elections.application');
+        Route::get('elections/{id}/settings',[ElectionController::class, 'setting'])->name('admin.elections.settings');
+
+        Route::get('profile', [AdminProfileController::class, 'show'])->name('admin.profile');
+    });
+});
+
+Route::view('reset-password', 'auth.password.reset-password');
+Route::view('join-vote', 'auth.join-vote');
