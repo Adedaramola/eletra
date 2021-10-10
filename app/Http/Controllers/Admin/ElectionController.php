@@ -19,7 +19,7 @@ class ElectionController extends Controller
     public function store(Request $request)
     {
         $input = $this->validate($request, [
-            'name' => 'required|string|unique:users',
+            'name' => 'required|string|unique:elections',
             'description' => 'required|string|max:255',
             'contestable_categories' => 'required'
         ]);
@@ -37,7 +37,7 @@ class ElectionController extends Controller
             )
         );
 
-        return redirect()->route('admin.elections.show', $election->id);
+        return redirect()->route('elections.show', $election->id);
     }
 
     public function show()
