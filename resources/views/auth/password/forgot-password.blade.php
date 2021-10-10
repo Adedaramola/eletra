@@ -14,8 +14,9 @@
             </div>
         @endif
 
+        <x-validation-errors class="mb-4" />
 
-        <form action="" method="post">
+        <form action="{{ route('password.email') }}" method="post">
             @csrf
 
             <div class="block">
