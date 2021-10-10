@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('elections/{id}', [ElectionController::class, 'view'])->name('elections.show');
         Route::get('elections/{id}/applications', [ElectionController::class, 'application'])->name('elections.application');
         Route::get('elections/{id}/settings', [ElectionController::class, 'setting'])->name('elections.settings');
+        Route::delete('elections/{election}', [ElectionController::class, 'destroy'])->name('elections.destroy');
 
         Route::get('profile', [AdminProfileController::class, 'show'])->name('profile');
     });

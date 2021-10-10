@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\ElectionCreated;
 use App\Models\Election;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class ElectionController extends Controller
@@ -61,5 +62,22 @@ class ElectionController extends Controller
     {
         $election = Election::findOrFail($id);
         return view('admin.election.settings', compact('election'));
+    }
+
+
+    public function destroy(Election $election, Request $request)
+    {
+        $this->authorize('delete', $election);
+        
+        $this->validate($request, [
+            'password' => 'required'
+        ]);
+
+        if (!Hash::check($request->password, auth()->user()->password)) {
+            return back();
+        }
+
+        $election->delete();
+        return redirect()->route('elections');
     }
 }
