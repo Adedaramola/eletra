@@ -14,7 +14,12 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
+
+            if ($request->routeIs('vote')) {
+                return route('vote.auth');
+            }
+
             return route('login');
         }
     }

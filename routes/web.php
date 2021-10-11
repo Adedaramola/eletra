@@ -17,8 +17,8 @@ Route::view('', 'index');
 Route::view('billing', 'billing');
 
 
-Route::get('vote/auth', [VotingController::class, 'index']);
-Route::view('vote', 'vote.index');
+Route::get('vote/auth', [VotingController::class, 'index'])->name('vote.auth')->middleware('guest:voter');
+Route::view('vote', 'vote.index')->name('vote')->middleware('auth:voter');
 
 Route::get('elections/join', [CandidateApplicationController::class, 'index'])->name('candidate.apply');
 Route::post('elections/join', [CandidateApplicationController::class, 'store']);

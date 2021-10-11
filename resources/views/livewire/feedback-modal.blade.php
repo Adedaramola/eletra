@@ -10,23 +10,23 @@
                     <p>How would you rate your experience on a scale of 1 to 5</p>
                     <div class="flex mt-3">
                         <div class="inline-flex items-center">
-                            <input type="radio" name="" id="" class="mr-2">
+                            <input type="radio" name="star" id="" class="mr-2">
                             <x-label for="" value="{{ __('1') }}" />
                         </div>
                         <div class="inline-flex items-center ml-4">
-                            <input type="radio" name="" id="" class="mr-2">
+                            <input type="radio" name="star" id="" class="mr-2">
                             <x-label for="" value="{{ __('2') }}" />
                         </div>
                         <div class="inline-flex items-center ml-4">
-                            <input type="radio" name="" id="" class="mr-2">
+                            <input type="radio" name="star" id="" class="mr-2">
                             <x-label for="" value="{{ __('3') }}" />
                         </div>
                         <div class="inline-flex items-center ml-4">
-                            <input type="radio" name="" id="" class="mr-2">
+                            <input type="radio" name="star" id="" class="mr-2">
                             <x-label for="" value="{{ __('4') }}" />
                         </div>
                         <div class="inline-flex items-center ml-4">
-                            <input type="radio" name="" id="" class="mr-2">
+                            <input type="radio" name="star" id="" class="mr-2">
                             <x-label for="" value="{{ __('5') }}" />
                         </div>
                     </div>
