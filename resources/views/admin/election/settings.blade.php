@@ -24,7 +24,7 @@
 
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white rounded-lg">
+            <div class="bg-white sm:rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
                     <form action="" method="POST">
                         <x-button>Import voters</x-button>

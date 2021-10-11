@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ config('app.name', 'Boomba') }}</title>
-
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <script src="{{ mix('js/app.js') }}" defer></script>
-</head>
-
-<body class="font-sans text-gray-900 antialiased">
+<x-guest-layout>
     <div class="relative overflow-hidden bg-gray-50">
         <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full" aria-hidden="true">
             <div class="relative h-full mx-auto max-w-7xl">
@@ -93,7 +80,7 @@
                     </p>
                     <div class="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
                         <div class="rounded-xl shadow">
-                            <a href="#"
+                            <a href="{{ route('register') }}"
                                 class="flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-xl hover:bg-blue-700 md:py-4 md:text-lg md:px-8">
                                 Get started for free!
                             </a>
@@ -247,6 +234,4 @@
             </div>
         </div>
     </footer>
-</body>
-
-</html>
+</x-guest-layout>

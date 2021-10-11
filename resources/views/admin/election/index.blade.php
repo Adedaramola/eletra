@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 px-4">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div>
                 @if ($elections->count())
@@ -22,7 +22,7 @@
                     </div>
                     @foreach ($elections as $election)
                     <div
-                        class="flex items-center justify-between bg-white font-medium text-sm px-6 py-4 mb-4 rounded-md shadow">
+                        class="flex items-start justify-between bg-white font-medium text-sm px-6 py-4 mb-4 rounded-md shadow">
                         <div>
                             <span>{{ $election->name }}</span>
                             <span class="ml-4 text-gray-500">{{ $election->candidates->count() }} applications</span>

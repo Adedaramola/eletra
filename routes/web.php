@@ -10,10 +10,15 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CandidateApplicationController;
+use App\Http\Controllers\VotingController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('', 'index');
 Route::view('billing', 'billing');
+
+
+Route::get('vote/auth', [VotingController::class, 'index']);
+Route::view('vote', 'vote.index');
 
 Route::get('elections/join', [CandidateApplicationController::class, 'index'])->name('candidate.apply');
 Route::post('elections/join', [CandidateApplicationController::class, 'store']);
@@ -65,5 +70,3 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('profile', [AdminProfileController::class, 'delete'])->name('profile.delete');
     });
 });
-
-Route::view('join-vote', 'auth.join-vote');

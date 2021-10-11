@@ -25,7 +25,7 @@
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div>
-                <div class="max-w-2xl mx-auto px-4 py-5 space-y-4 text-center bg-white rounded-lg shadow sm:p-6">
+                <div class="max-w-2xl mx-auto px-4 py-5 space-y-4 text-center bg-white sm:rounded-lg shadow sm:p-6">
                     <p class="mt-1 text-gray-500">
                         Once you have added a candidate, they will appear here.
                     </p>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="max-w-2xl mx-auto mt-6">
+                <div class="max-w-2xl mx-auto mt-6 px-4 sm:px-0">
                     @if ($election->candidates->count())
                     @foreach ($election->candidates as $candidate)
                     <div class="flex items-center justify-between bg-white px-6 py-4 rounded-md shadow text-sm font-medium mb-3">

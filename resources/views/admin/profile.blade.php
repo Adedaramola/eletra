@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-3xl mx-auto py-10 sm:px-6 lg:px-8">
-            <div class="max-w-xl mx-auto p-8 bg-white rounded-lg shadow">
+            <div class="max-w-xl mx-auto px-4 py-8 sm:px-8 bg-white sm:rounded-lg shadow">
                 @if (session('status'))
                 <div class="bg-green-50 px-4 py-3 rounded-md flex items-center border border-green-100 mb-6">
                     <svg class="w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -69,15 +69,15 @@
                 </form>
             </div>
 
-            <div class="max-w-xl mt-8 mx-auto bg-white rounded-lg shadow">
-                <div class="px-8 py-6 space-y-2">
+            <div class="max-w-xl mt-8 mx-auto bg-white sm:rounded-lg shadow">
+                <div class="px-4 sm:px-8 py-6 space-y-2">
                     <h3 class="text-lg font-medium">Switch Theme</h3>
                     <div class="flex items-center text-sm text-gray-500">
                         <p>Toggle to switch between dark and light mode</p>
                     </div>
                 </div>
                 <hr>
-                <div class="px-8 py-6 space-y-2">
+                <div class="px-4 sm:px-8 py-6 space-y-2">
                     <h3 class="text-red-800 text-lg font-medium">Delete Account</h3>
                     <div class="text-red-600 text-sm">Are you sure you want to delete your account? Once your account is
                         deleted, all of its resources and data will be permanently deleted. Please enter your password

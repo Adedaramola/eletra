@@ -38,14 +38,14 @@
         @endif
 
         <!-- Page Content -->
-        <main class="px-4">
+        <main>
             {{ $slot }}
         </main>
     </div>
     <button x-data="{}" x-on:click="window.livewire.emitTo('feedback-modal','show')"
-        class="fixed z-0 p-3 bg-blue-600 rounded-full shadow-sm md:p-4 bottom-4 right-4 md:bottom-12 md:right-12 hover:bg-blue-700 focus:bg-blue-700"
+        class="fixed z-0 p-4 bg-blue-600 rounded-full shadow-sm bottom-4 right-4 md:bottom-12 md:right-12 hover:bg-blue-700 focus:bg-blue-700"
         title="Provide Feedback">
-        <svg class="w-4 h-4 text-white md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20"
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
                 d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"

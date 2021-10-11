@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 px-4">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div>
                 <h3 class="text-lg font-medium leading-6">Activity Overview</h3>
