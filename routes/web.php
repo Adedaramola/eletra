@@ -9,10 +9,14 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\CandidateApplicationController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('', 'index');
 Route::view('billing', 'billing');
+
+Route::get('elections/join', [CandidateApplicationController::class, 'index'])->name('candidate.apply');
+Route::post('elections/join', [CandidateApplicationController::class, 'store']);
 
 Route::middleware(['guest'])->group(function () {
     Route::get('register', [RegisterController::class, 'index'])->name('register');
@@ -47,15 +51,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('elections', [ElectionController::class, 'index'])->name('elections');
         Route::get('elections/create', [ElectionController::class, 'show'])->name('elections.create');
         Route::post('elections/create', [ElectionController::class, 'store']);
-        Route::get('elections/{id}', [ElectionController::class, 'view'])->name('elections.show');
-        Route::get('elections/{id}/applications', [ElectionController::class, 'application'])->name('elections.application');
+        Route::get('elections/{election}', [ElectionController::class, 'view'])->name('elections.show');
+        Route::get('elections/{election}/applications', [ElectionController::class, 'application'])->name('elections.application');
         Route::get('elections/{id}/settings', [ElectionController::class, 'setting'])->name('elections.settings');
         Route::delete('elections/{election}', [ElectionController::class, 'destroy'])->name('elections.destroy');
 
         Route::get('elections/{id}/candidate', [CandidateController::class, 'show'])->name('candidate');
         Route::post('elections/{id}/candidate', [CandidateController::class, 'store']);
 
+
         Route::get('profile', [AdminProfileController::class, 'show'])->name('profile');
+        Route::put('profile/{user}', [AdminProfileController::class, 'update'])->name('profile.update');
+        Route::delete('profile', [AdminProfileController::class, 'delete'])->name('profile.delete');
     });
 });
 

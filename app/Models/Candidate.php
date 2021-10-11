@@ -14,6 +14,7 @@ class Candidate extends Model
         'name',
         'email',
         'photo_url',
+        'manifesto',
         'votes'
     ];
 

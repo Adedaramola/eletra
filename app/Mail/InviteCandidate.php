@@ -8,6 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\URL;
 
 class InviteCandidate extends Mailable
 {
@@ -15,6 +16,7 @@ class InviteCandidate extends Mailable
 
     public $election;
     public $candidate;
+    public $url;
     /**
      * Create a new message instance.
      *
@@ -24,6 +26,15 @@ class InviteCandidate extends Mailable
     {
         $this->election = $election;
         $this->candidate = $candidate;
+        $this->url = URL::signedRoute(
+            'candidate.apply',
+            [
+                'election_id' => $election->id,
+                'position' => $candidate->position,
+                'email' => $candidate->email,
+                'candidate_code' => $election->candidate_code
+            ]
+        );
     }
 
     /**

@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Mail;
 
 class ElectionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $elections = Election::all();
+        $elections = auth()->user()->elections;
         return view('admin.election.index', compact('elections'));
     }
 
@@ -46,15 +46,16 @@ class ElectionController extends Controller
         return view('admin.election.create');
     }
 
-    public function view($id)
+    public function view(Election $election)
     {
-        $election = Election::findOrFail($id);
+        $user = auth()->user();
+        $election = $user->elections()->findOrFail($election->id);
         return view('admin.election.show', compact('election'));
     }
 
-    public function application($id)
+    public function application(Election $election)
     {
-        $election = Election::findOrFail($id);
+        $election = $election->findOrFail($election->id);
         return view('admin.election.application', compact('election'));
     }
 

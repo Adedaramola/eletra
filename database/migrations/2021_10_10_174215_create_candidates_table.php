@@ -20,6 +20,7 @@ class CreateCandidatesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('photo_url')->nullable();
+            $table->longText('manifesto')->nullable();
             $table->integer('votes')->default(0);
             $table->timestamps();
         });
