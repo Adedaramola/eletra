@@ -39,7 +39,7 @@
                             <p class="font-medium leading-loose">Your live election url is:</p>
                             <div class="flex items-center justify-between w-full space-x-4">
                                 <input class="rounded-md shadow-sm border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 flex-1 text-sm text-gray-600" type="text" readonly="readonly" value="">
-                                <x-button>Copy to clipboard</x-button>
+                                <x-button>Copy</x-button>
                             </div>
                         </div>
                         <div class="text-gray-700">All activities regarding your election can be access through this url. Consider sharing this link among all participants in the election. Find all other election details below.</div>

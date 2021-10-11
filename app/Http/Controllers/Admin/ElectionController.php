@@ -68,7 +68,7 @@ class ElectionController extends Controller
     public function destroy(Election $election, Request $request)
     {
         $this->authorize('delete', $election);
-        
+
         $this->validate($request, [
             'password' => 'required'
         ]);

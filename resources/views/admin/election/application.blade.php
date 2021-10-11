@@ -25,18 +25,8 @@
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div>
-                @if ($election->candidates->count())
-                    this
-                @else
                 <div class="max-w-2xl mx-auto px-4 py-5 space-y-4 text-center bg-white rounded-lg shadow sm:p-6">
-                    <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                        </path>
-                    </svg>
-                    <h3 class="mt-2 text-sm font-medium text-gray-900">No candidate found</h3>
-                    <p class="mt-1 text-sm text-gray-500">
+                    <p class="mt-1 text-gray-500">
                         Once you have added a candidate, they will appear here.
                     </p>
                     <div class="mt-6">
@@ -52,7 +42,25 @@
                         </a>
                     </div>
                 </div>
-                @endif
+
+                <div class="max-w-2xl mx-auto mt-6">
+                    @if ($election->candidates->count())
+                    @foreach ($election->candidates as $candidate)
+                    <div class="flex items-center justify-between bg-white px-6 py-4 rounded-md shadow text-sm font-medium mb-3">
+                        <div class="truncate">{{ $candidate->name }} - <span class="text-gray-500">{{ $candidate->position }}</span>
+                        </div>
+                        <div class="inline-flex items-center">
+                            <a href="#" class="text-blue-600">View</a>
+                            <a href="#" class="text-red-600 ml-3">Delete</a>
+                        </div>
+                    </div>
+                    @endforeach
+                    @else
+                    <div class="bg-white px-4 py-3 rounded-md shadow text-gray-500">
+                        No candidate found
+                    </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

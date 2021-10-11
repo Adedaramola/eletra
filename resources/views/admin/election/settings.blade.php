@@ -65,7 +65,7 @@
                             <x-input id="password" class="mt-1 w-full max-w-sm" type="password" name="password" required
                                 autocomplete="current-password" />
                             <button type="submit"
-                                class="ml-4 inline-flex items-center justify-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-sm text-white tracking-wide hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-300 disabled:opacity-25 transition">{{ __('Delete Election') }}</button>
+                                class="ml-4 inline-flex items-center justify-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-sm text-white tracking-wide hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-300 disabled:opacity-25 transition">{{ __('Delete') }}</button>
                         </div>
                     </form>
                 </div>

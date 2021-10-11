@@ -33,7 +33,7 @@ class InviteCandidate extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.election.invite-candidate')
+        return $this->markdown('email.elections.invite-candidate')
             ->subject('Invitation to Contest');
     }
 }
